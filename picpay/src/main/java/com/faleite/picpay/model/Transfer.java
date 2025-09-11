@@ -32,6 +32,6 @@ public class Transfer {
     @Column(name = "value_transfer", nullable = false)
     private BigDecimal valueTransfer;
 
-    @Column(nullable = false)
+    @Column(name = "transfer_at", nullable = false)
     private LocalDateTime transferAt;
 }
