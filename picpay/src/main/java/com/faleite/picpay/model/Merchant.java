@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_mercahnts")
+@Table(name = "tb_merchants")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,5 +24,5 @@ public class Merchant {
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User merchant;
 }

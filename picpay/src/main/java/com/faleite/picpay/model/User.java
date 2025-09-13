@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @Column(name = "full_name", nullable = false)
-    private String fullname;
+    private String fullName; // fullName
 
     @Column(nullable = false, unique = true)
     private String cpf;

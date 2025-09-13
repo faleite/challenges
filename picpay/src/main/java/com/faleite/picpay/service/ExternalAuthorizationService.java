@@ -1,0 +1,31 @@
+package com.faleite.picpay.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class ExternalAuthorizationService {
+
+    private static String AUTHORIZATION_URI = "https://util.devi.tools/api/v2/authorize";
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public boolean isAuthorized(){
+
+        try {
+            // Deve usar um Map aqui ***
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(AUTHORIZATION_URI, String.class);
+            if (responseEntity.getStatusCode() == HttpStatus.OK){
+                return responseEntity.getBody().contains("authorization");
+            }
+            return false;
+        } catch (Exception e) {
+            throw new RuntimeException("Authorization service unavailable", e);
+        }
+    }
+
+}

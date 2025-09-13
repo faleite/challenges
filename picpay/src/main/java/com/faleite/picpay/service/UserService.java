@@ -31,7 +31,7 @@ public class UserService {
     public Merchant createMerchant(final MerchantDTO merchantDTO){
 
         User user = new User();
-        user.setFullname(merchantDTO.getFullname());
+        user.setFullName(merchantDTO.getFullName());
         user.setCpf(merchantDTO.getCpf());
         user.setEmail(merchantDTO.getEmail());
         user.setPassword(merchantDTO.getPassword());
@@ -40,7 +40,7 @@ public class UserService {
         user = userRepository.save(user);
 
         Merchant merchant = new Merchant();
-        merchant.setUser(user);
+        merchant.setMerchant(user);
         merchant.setCnpj(merchantDTO.getCnpj());
         return merchantRepository.save(merchant);
     }
