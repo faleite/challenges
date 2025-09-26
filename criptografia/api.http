@@ -1,0 +1,16 @@
+### create
+POST localhost:8080/api/sensitive-data
+Content-Type: application/json
+
+{
+  "userDocument": "123456",
+  "creditCardToken": "455182000009478",
+  "value": 50
+}
+
+###
+GET localhost:8080/api/sensitive-data
+
+###
+DELETE localhost:8080/api/sensitive-data/4
+Content-Type: application/json
